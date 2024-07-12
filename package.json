@@ -1,0 +1,20 @@
+{
+  "name": "co2-calc",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "daisyui": "^4.10.2",
+    "tailwindcss": "^3.4.3",
+    "vite": "^5.2.0"
+  },
+  "dependencies": {
+    "appwrite": "^13.0.2",
+    "chart.js": "^4.4.2"
+  }
+}

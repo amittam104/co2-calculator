@@ -1,0 +1,2204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="./output.css" rel="stylesheet" />
+    <title>Setup Project</title>
+    <style>
+      #primary-pkg {
+        height: 13rem;
+      }
+    </style>
+  </head>
+  <body class="flex flex-col h-screen">
+    <!-- Navbar starts here -->
+    <nav class="navbar bg-base-100">
+      <div class="navbar-start">
+        <div class="dropdown">
+          <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h7"
+              />
+            </svg>
+          </div>
+          <ul
+            tabindex="0"
+            class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+          >
+            <li><a href="index.html">Homepage</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="navbar-center">
+        <h1 class="text-3xl text-slate-900 font-bold">
+          CO<sub>2</sub>e Emission Calculator
+        </h1>
+      </div>
+      <div class="navbar-end">
+        <button class="btn btn-ghost btn-circle">
+          <div class="indicator">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+              />
+            </svg>
+            <span class="badge badge-xs badge-primary indicator-item"></span>
+          </div>
+        </button>
+      </div>
+    </nav>
+    <!-- Navbar ends here -->
+
+    <section class="flex justify-center items-center flex-grow bg-[#F3F4F8]">
+      <!--SETUP: User sets project and Product name, selects pakcging and logistics -->
+      <div
+        class="bg-white w-[50%] mt-4 p-8 rounded-xl flex flex-col justify-center items-center shadow-lg"
+        id="form-setup"
+      >
+        <div class="mb-12">
+          <h1 class="text-2xl font-bold text-center mb-2">
+            Set up a new project
+          </h1>
+          <p class="text-sm text-slate-500">
+            Fill the project and product packaging details below
+          </p>
+        </div>
+        <form
+          class="w-[80%] grid grid-cols-2 gap-4 gap-x-10 mb-8"
+          action="submit"
+        >
+          <label class="form-control w-full max-w-xs">
+            <div class="label">
+              <span class="label-text font-bold text-md text-neutral-600"
+                >Project Name</span
+              >
+            </div>
+            <input
+              type="text"
+              placeholder="Project 1"
+              id="project-name"
+              class="input input-bordered w-full max-w-xs font-medium"
+            />
+            <div class="label">
+              <span class="label-text-alt text-red-600 hidden"
+                >Please enter a project name</span
+              >
+            </div>
+          </label>
+          <label class="form-control w-full max-w-xs">
+            <div class="label">
+              <span class="label-text font-bold text-md text-neutral-600"
+                >Product Name</span
+              >
+            </div>
+            <input
+              type="text"
+              placeholder="Product 1"
+              id="product-name"
+              class="input input-bordered w-full max-w-xs font-medium"
+            />
+            <div class="label">
+              <span class="label-text-alt text-red-600 hidden"
+                >Please enter a product name</span
+              >
+            </div>
+          </label>
+          <label class="form-control w-full max-w-xs">
+            <div class="label">
+              <span class="label-text font-bold text-md text-neutral-600"
+                >Primary Packaging</span
+              >
+            </div>
+            <select
+              class="select select-bordered font-medium"
+              id="primary-pkg"
+              multiple
+            >
+              <option disabled value="">
+                Select one or more Primary Packaging
+              </option>
+              <option value="Pouches">Pouches</option>
+              <option value="Trays">Trays</option>
+              <option value="Tray lids">Tray lids</option>
+              <option value="Packaging Hoops">Packaging Hoops</option>
+              <option value="Dispenser">Dispenser</option>
+              <option value="Looper">Looper</option>
+              <option value="Accessory Clip">Accessory Clip</option>
+              <option value="Bag">Bag</option>
+              <option value="Jars">Jars</option>
+            </select>
+            <div class="label">
+              <span class="label-text-alt text-red-600 hidden"
+                >Please select the packaging</span
+              >
+            </div>
+          </label>
+          <div class="flex flex-col gap-6 justify-between">
+            <label class="form-control w-full max-w-xs">
+              <div class="label">
+                <span class="label-text font-bold text-md text-neutral-600"
+                  >Secondary Packaging</span
+                >
+              </div>
+              <select
+                class="select select-bordered font-medium"
+                id="secondary-pkg"
+              >
+                <option disabled value="">
+                  Select one or more Secondary Packaging
+                </option>
+                <option value="Cartons">Cartons</option>
+                <!-- <option value="Foam Inserts">Foam Inserts</option> -->
+              </select>
+              <div class="label">
+                <span class="label-text-alt text-red-600 hidden"
+                  >Please select the packaging</span
+                >
+              </div>
+            </label>
+            <label class="form-control w-full max-w-xs">
+              <div class="label">
+                <span class="label-text font-bold text-md text-neutral-600"
+                  >Tertiary Packaging</span
+                >
+              </div>
+              <select
+                class="select select-bordered font-medium"
+                id="tertiary-pkg"
+              >
+                <option disabled value="">Select Tertiary Packaging</option>
+                <option value="CFB">Shipper</option>
+                <!-- <option value="Pallets">Pallets</option> -->
+              </select>
+              <div class="label">
+                <span class="label-text-alt text-red-600 hidden"
+                  >Please select the packaging</span
+                >
+              </div>
+            </label>
+          </div>
+          <label class="form-control w-full max-w-xs">
+            <div class="label">
+              <span class="label-text font-bold text-md text-neutral-600"
+                >Logistics</span
+              >
+            </div>
+            <select
+              class="select select-bordered font-medium"
+              id="logistics"
+              multiple
+            >
+              <option disabled value="">Select one or more logistics</option>
+              <option value="road">Road</option>
+              <option value="roadMileage">Road (Vehicle milage)</option>
+              <option value="air">Air</option>
+              <option value="ship">Ship</option>
+              <option value="rail">Electric Rail</option>
+            </select>
+            <div class="label">
+              <span class="label-text-alt text-red-600 hidden"
+                >Please select atleast one logistics option</span
+              >
+            </div>
+          </label>
+        </form>
+        <div class="flex gap-8">
+          <a href="setup.html" id="submit-setup-link"
+            ><button
+              class="btn btn-wide bg-blue-500 text-white hover:bg-blue-600"
+              id="btn-submit-setup"
+            >
+              Submit
+            </button></a
+          >
+          <a href="index.html"
+            ><button
+              class="btn btn-wide bg-white border-2 border-neutral-500 hover:bg-white hover:border-neutral-600 text-neutral-500 hover:text-neutral-700"
+            >
+              Go back
+            </button></a
+          >
+        </div>
+      </div>
+
+      <!--DETAILS: User to fill packaging details per packaging & logistics selection -->
+      <div
+        class="bg-white p-16 my-8 rounded-xl flex flex-col justify-center items-center shadow-lg hidden"
+        id="form-details"
+      >
+        <div class="mb-12 text-center" id="details-header">
+          <h1 class="text-2xl font-bold mb-2">Enter Packaging details</h1>
+          <p class="text-sm text-slate-500">
+            Enter packaging material and dimensional information
+          </p>
+        </div>
+        <div id="details-primary" class="w-full border-b-2 mb-16">
+          <div id="details-primary-pouch">
+            <div class="self-start mb-6 font-semibold">
+              Primary Packaging: <span class="font-bold">Pouch</span>
+            </div>
+            <form
+              class="w-100 grid grid-cols-3 gap-y-4 gap-x-10 mb-12"
+              action="submit"
+            >
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >1st Layer of Laminate</span
+                  >
+                </div>
+                <select
+                  class="select select-bordered font-medium"
+                  id="pouch-first-layer"
+                >
+                  <option disabled selected value="">Pick one</option>
+                  <option value="PET">PET</option>
+                  <option value="HDPE">HDPE</option>
+                  <option value="PVC">PVC</option>
+                  <option value="LDPE">LDPE</option>
+                  <option value="PP">PP</option>
+                  <option value="PS">PS</option>
+                  <option value="RecycledPET">Recycled PET</option>
+                  <option value="RecycledHDPE">Recycled HDPE</option>
+                  <option value="RecycledPVC">Recycled PVC</option>
+                  <option value="RecycledLDPE">Recycled LDPE</option>
+                  <option value="RecycledPP">Recycled PP</option>
+                  <option value="Recycledpaper">Recycled paper</option>
+                  <option value="Virginpaper">Virgin paper</option>
+                  <option value="MS">MS</option>
+                </select>
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please select atleast one material</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >2nd Layer of Laminate</span
+                  >
+                </div>
+                <select
+                  class="select select-bordered font-medium"
+                  id="pouch-second-layer"
+                >
+                  <option disabled selected value="">Pick one</option>
+                  <option value="PET">PET</option>
+                  <option value="HDPE">HDPE</option>
+                  <option value="PVC">PVC</option>
+                  <option value="LDPE">LDPE</option>
+                  <option value="PP">PP</option>
+                  <option value="PS">PS</option>
+                  <option value="RecycledPET">Recycled PET</option>
+                  <option value="RecycledHDPE">Recycled HDPE</option>
+                  <option value="RecycledPVC">Recycled PVC</option>
+                  <option value="RecycledLDPE">Recycled LDPE</option>
+                  <option value="RecycledPP">Recycled PP</option>
+                  <option value="Recycledpaper">Recycled paper</option>
+                  <option value="Virginpaper">Virgin paper</option>
+                  <option value="MS">MS</option>
+                </select>
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please select atleast one material</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Thickness of 1st layer of Laminate</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="micron"
+                  id="pouch-first-thickness"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Thickness of 2nd layer of Laminate</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="micron"
+                  id="pouch-second-thickness"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Length</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="mm"
+                  id="pouch-length"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Width</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="mm"
+                  id="pouch-width"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Quantity</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="Nos"
+                  id="pouch-quantity"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+            </form>
+          </div>
+          <div id="details-primary-tray">
+            <div class="self-start mb-6 font-semibold">
+              Primary Packaging: <span class="font-bold">Tray</span>
+            </div>
+            <form
+              class="w-100 grid grid-cols-3 gap-y-4 gap-x-10 mb-12"
+              action="submit"
+            >
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Material</span
+                  >
+                </div>
+                <select
+                  class="select select-bordered font-medium"
+                  id="tray-material"
+                >
+                  <option disabled selected>Pick one</option>
+                  <option value="PVC">PVC</option>
+                  <option value="PP">PP</option>
+                  <option value="RecycledPVC">Recycled PVC</option>
+                  <option value="RecycledPP">Recycled PP</option>
+                </select>
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please select atleast one material</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Length</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="mm"
+                  id="tray-length"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Width</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="mm"
+                  id="tray-width"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Depth / Height</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="mm"
+                  id="tray-height"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Thickness</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="micron"
+                  id="tray-thickness"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Quantity</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="Nos"
+                  id="tray-quantity"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+            </form>
+          </div>
+          <div id="details-primary-tray_lids">
+            <div class="self-start mb-6 font-semibold">
+              Primary Packaging: <span class="font-bold">Tray Lids</span>
+            </div>
+            <form
+              class="w-100 grid grid-cols-3 gap-y-4 gap-x-10 mb-12"
+              action="submit"
+            >
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Material</span
+                  >
+                </div>
+                <select
+                  class="select select-bordered font-medium"
+                  id="traylid-material"
+                >
+                  <option disabled selected>Pick one</option>
+                  <option value="PVC">PVC</option>
+                  <option value="PP">PP</option>
+                  <option value="RecycledPVC">Recycled PVC</option>
+                  <option value="RecycledPP">Recycled PP</option>
+                </select>
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please select atleast one material</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Length</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  id="traylid-length"
+                  placeholder="mm"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Width</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  id="traylid-width"
+                  placeholder="mm"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Depth / Height</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  id="traylid-depth-height"
+                  placeholder="mm"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Thickness</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  id="traylid-thickness"
+                  placeholder="micron"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Quantity</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  id="traylid-quantity"
+                  placeholder="Nos"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+            </form>
+          </div>
+          <div id="details-primary-packaging_hoop">
+            <div class="self-start mb-6 font-semibold">
+              Primary Packaging: <span class="font-bold">Packaging Hoop</span>
+            </div>
+            <form
+              class="w-100 grid grid-cols-3 gap-y-4 gap-x-10 mb-12"
+              action="submit"
+            >
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Material</span
+                  >
+                </div>
+                <select
+                  class="select select-bordered font-medium"
+                  id="pkgHoop-material"
+                >
+                  <option disabled selected>Pick one</option>
+                  <option value="PVC">PVC</option>
+                  <option value="PP">PP</option>
+                  <option value="RecycledPVC">Recycled PVC</option>
+                  <option value="RecycledPP">Recycled PP</option>
+                </select>
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please select atleast one material</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Weight of single Hoop</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="g"
+                  id="pkgHoop-weight"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Quantity</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="Nos"
+                  id="pkgHoop-quantity"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+            </form>
+          </div>
+          <div id="details-primary-dispenser">
+            <div class="self-start mb-6 font-semibold">
+              Primary Packaging: <span class="font-bold">Dispenser</span>
+            </div>
+            <form
+              class="w-100 grid grid-cols-3 gap-y-4 gap-x-10 mb-12"
+              action="submit"
+            >
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Material</span
+                  >
+                </div>
+                <select
+                  class="select select-bordered font-medium"
+                  id="dispenser-material"
+                >
+                  <option disabled selected>Pick one</option>
+                  <option value="PET">PET</option>
+                  <option value="HDPE">HDPE</option>
+                  <option value="PVC">PVC</option>
+                  <option value="LDPE">LDPE</option>
+                  <option value="PP">PP</option>
+                  <option value="PS">PS</option>
+                  <option value="RecycledPET">Recycled PET</option>
+                  <option value="RecycledHDPE">Recycled HDPE</option>
+                  <option value="RecycledPVC">Recycled PVC</option>
+                  <option value="RecycledLDPE">Recycled LDPE</option>
+                  <option value="RecycledPP">Recycled PP</option>
+                  <option value="Recycledpaper">Recycled paper</option>
+                  <option value="Virginpaper">Virgin paper</option>
+                  <option value="MS">MS</option>
+                </select>
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please select atleast one material</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Weight of dispenser</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="g"
+                  id="dispenser-weight"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Quantity</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="Nos"
+                  id="dispenser-quantity"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+            </form>
+          </div>
+          <div id="details-primary-looper">
+            <div class="self-start mb-6 font-semibold">
+              Primary Packaging: <span class="font-bold">Looper</span>
+            </div>
+            <form
+              class="w-100 grid grid-cols-3 gap-y-4 gap-x-10 mb-12"
+              action="submit"
+            >
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Material</span
+                  >
+                </div>
+                <select
+                  class="select select-bordered font-medium"
+                  id="looper-material"
+                >
+                  <option disabled selected>Pick one</option>
+                  <option value="PET">PET</option>
+                  <option value="HDPE">HDPE</option>
+                  <option value="PVC">PVC</option>
+                  <option value="LDPE">LDPE</option>
+                  <option value="PP">PP</option>
+                  <option value="PS">PS</option>
+                  <option value="RecycledPET">Recycled PET</option>
+                  <option value="RecycledHDPE">Recycled HDPE</option>
+                  <option value="RecycledPVC">Recycled PVC</option>
+                  <option value="RecycledLDPE">Recycled LDPE</option>
+                  <option value="RecycledPP">Recycled PP</option>
+                  <option value="Recycledpaper">Recycled paper</option>
+                  <option value="Virginpaper">Virgin paper</option>
+                  <option value="MS">MS</option>
+                </select>
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please select atleast one material</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Weight of Looper</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="g"
+                  id="looper-weight"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Quantity</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="Nos"
+                  id="looper-quantity"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+            </form>
+          </div>
+          <div id="details-primary-acess_clip">
+            <div class="self-start mb-6 font-semibold">
+              Primary Packaging: <span class="font-bold">Accessory Clip</span>
+            </div>
+            <form
+              class="w-100 grid grid-cols-3 gap-y-4 gap-x-10 mb-12"
+              action="submit"
+            >
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Material</span
+                  >
+                </div>
+                <select
+                  class="select select-bordered font-medium"
+                  id="accClip-material"
+                >
+                  <option disabled selected>Pick one</option>
+                  <option value="PET">PET</option>
+                  <option value="HDPE">HDPE</option>
+                  <option value="PVC">PVC</option>
+                  <option value="LDPE">LDPE</option>
+                  <option value="PP">PP</option>
+                  <option value="PS">PS</option>
+                  <option value="RecycledPET">Recycled PET</option>
+                  <option value="RecycledHDPE">Recycled HDPE</option>
+                  <option value="RecycledPVC">Recycled PVC</option>
+                  <option value="RecycledLDPE">Recycled LDPE</option>
+                  <option value="RecycledPP">Recycled PP</option>
+                  <option value="Recycledpaper">Recycled paper</option>
+                  <option value="Virginpaper">Virgin paper</option>
+                  <option value="MS">MS</option>
+                </select>
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please select atleast one material</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Weight of Clip</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="g"
+                  id="accClip-weight"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Quantity</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="Nos"
+                  id="accClip-quantity"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+            </form>
+          </div>
+          <div id="details-primary-bag">
+            <div class="self-start mb-6 font-semibold">
+              Primary Packaging: <span class="font-bold">Bag</span>
+            </div>
+            <form
+              class="w-100 grid grid-cols-3 gap-y-4 gap-x-10 mb-12"
+              action="submit"
+            >
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Material</span
+                  >
+                </div>
+                <select
+                  class="select select-bordered font-medium"
+                  id="bag-material"
+                >
+                  <option disabled selected>Pick one</option>
+                  <option value="PET">PET</option>
+                  <option value="HDPE">HDPE</option>
+                  <option value="PVC">PVC</option>
+                  <option value="LDPE">LDPE</option>
+                  <option value="PP">PP</option>
+                  <option value="PS">PS</option>
+                  <option value="RecycledPET">Recycled PET</option>
+                  <option value="RecycledHDPE">Recycled HDPE</option>
+                  <option value="RecycledPVC">Recycled PVC</option>
+                  <option value="RecycledLDPE">Recycled LDPE</option>
+                  <option value="RecycledPP">Recycled PP</option>
+                  <option value="Recycledpaper">Recycled paper</option>
+                  <option value="Virginpaper">Virgin paper</option>
+                  <option value="MS">MS</option>
+                </select>
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please select atleast one material</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Weight of Bag</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="g"
+                  id="bag-weight"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Quantity</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="Nos"
+                  id="bag-quantity"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+            </form>
+          </div>
+          <div id="details-primary-jar">
+            <div class="self-start mb-6 font-semibold">
+              Primary Packaging: <span class="font-bold">Jars</span>
+            </div>
+            <form
+              class="w-100 grid grid-cols-3 gap-y-4 gap-x-10 mb-12"
+              action="submit"
+            >
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Material</span
+                  >
+                </div>
+                <select
+                  class="select select-bordered font-medium"
+                  id="jar-material"
+                >
+                  <option disabled selected>Pick one</option>
+                  <option value="PVC">PVC</option>
+                  <option value="PP">PP</option>
+                  <option value="RecycledPVC">Recycled PVC</option>
+                  <option value="RecycledPP">Recycled PP</option>
+                </select>
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please select atleast one material</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Weight of Jar</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="g"
+                  id="jar-weight"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Quantity</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="Nos"
+                  id="jar-quantity"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+            </form>
+          </div>
+        </div>
+        <div id="details-secondary" class="w-full border-b-2 mb-16">
+          <div id="details-secondary-carton">
+            <div
+              class="self-start mb-6 font-medium"
+              id="secondary-carton-header"
+            >
+              Secondary Packaging: <span class="font-bold">Carton</span>
+            </div>
+            <form
+              class="w-100 grid grid-cols-3 gap-y-4 gap-x-10 mb-12"
+              action="submit"
+            >
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Length</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="mm"
+                  id="carton-length"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Width</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="mm"
+                  id="carton-width"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Height</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="mm"
+                  id="carton-height"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Thickness</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="mm"
+                  id="carton-thickness"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Weight of Carton</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="g/m^2"
+                  id="carton-GSM"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Quantity</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="Nos"
+                  id="carton-quantity"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+            </form>
+          </div>
+          <div id="details-secondary-foam_inserts">
+            <div
+              class="self-start mb-6 font-medium"
+              id="secondary-foam_inserts-header"
+            >
+              Secondary Packaging: <span class="font-bold">Foam Inserts</span>
+            </div>
+            <form
+              class="w-100 grid grid-cols-3 gap-y-4 gap-x-10 mb-12"
+              action="submit"
+            >
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Thickness of 1st layer of Laminate</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="100 micron"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Thickness of 2nd layer of Laminate</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="50 micron"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Length</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="700 mm"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Width</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="300 mm"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Quantity</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="1000 Nos"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+            </form>
+          </div>
+        </div>
+        <div id="details-tertiary" class="w-full border-b-2 mb-16">
+          <div id="details-tertiary-cfb">
+            <div class="self-start mb-6 font-medium">
+              Tertiary Packaging: <span class="font-bold">CFB/Shipper</span>
+            </div>
+            <form
+              class="w-100 grid grid-cols-3 gap-y-4 gap-x-10 mb-12"
+              action="submit"
+            >
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Length</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="mm"
+                  id="cfb-length"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Width</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="mm"
+                  id="cfb-width"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Height</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="mm"
+                  id="cfb-height"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Type of Outer Flute</span
+                  >
+                </div>
+                <select
+                  class="select select-bordered font-medium"
+                  id="cfb-type-outer-flute"
+                >
+                  <option disabled selected>Pick one</option>
+                  <option value="K">K</option>
+                  <option value="A">A</option>
+                  <option value="C">C</option>
+                  <option value="B">B</option>
+                  <option value="E">E</option>
+                  <option value="F">F</option>
+                  <option value="N">N</option>
+                </select>
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please select atleast one type</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Type of Inner Flute</span
+                  >
+                </div>
+                <select
+                  class="select select-bordered font-medium"
+                  id="cfb-type-inner-flute"
+                >
+                  <option disabled selected>Pick one</option>
+                  <option value="K">K</option>
+                  <option value="A">A</option>
+                  <option value="C">C</option>
+                  <option value="B">B</option>
+                  <option value="E">E</option>
+                  <option value="F">F</option>
+                  <option value="N">N</option>
+                </select>
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please select atleast one type</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Quantity</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="Nos"
+                  id="cfb-quantity"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Outer Layer</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="g/m^2"
+                  id="cfb-outer-layer"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Outer Flute</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="g/m^2"
+                  id="cfb-outer-flute"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Middle Layer</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="g/m^2"
+                  id="cfb-middle-layer"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Inner Flute</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="g/m^2"
+                  id="cfb-inner-flute"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Inner Layer</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="g/m^2"
+                  id="cfb-inner-layer"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Weight of each pin</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="gram"
+                  id="cfb-pin-weight"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+            </form>
+          </div>
+          <!-- <div id="details-tertiary-pallets">
+            <div class="self-start mb-6 font-medium">
+              Tertiary Packaging: <span class="font-bold">Pallets</span>
+            </div>
+            <form
+              class="w-100 grid grid-cols-3 gap-y-4 gap-x-10 mb-12"
+              action="submit"
+            >
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Box Length</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="mm"
+                  id="box-length"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Box Width</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="mm"
+                  id="box-width"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Box Height</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="mm"
+                  id="box-height"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Max Height</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="mm"
+                  id="max-height"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Pallet Length</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="mm"
+                  id="pallet-length"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Pallet Width</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="mm"
+                  id="pallet-width"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Pallet Height</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="mm"
+                  id="pallet-height"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >No. of Pallets</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="Nos"
+                  id="pallet-quantity"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+            </form>
+          </div> -->
+        </div>
+        <div id="details-logistics" class="w-full">
+          <div id="details-logistics-road">
+            <div class="self-start mb-6 font-medium">
+              Logistics: <span class="font-bold">By Road</span>
+            </div>
+            <form
+              class="w-100 grid grid-cols-3 gap-y-4 gap-x-10 mb-12"
+              action="submit"
+            >
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Fuel Type</span
+                  >
+                </div>
+                <select
+                  class="select select-bordered font-medium"
+                  id="logistics-fuel-type-road"
+                >
+                  <option disabled selected value="">Pick one</option>
+                  <option value="Petrol">Petrol</option>
+                  <option value="Ethanol">Ethanol</option>
+                  <option value="PetrolE5">Petrol E5</option>
+                  <option value="PetrolE10">Petrol E10</option>
+                  <option value="Diesel">Diesel</option>
+                  <option value="BioDiesel">BioDiesel</option>
+                  <option value="DieselD5">Diesel D5</option>
+                  <option value="DieselD7">DieselD7</option>
+                  <option value="CNG">Compressed Natural Gas (CNG)</option>
+                  <option value="LPG">Liquified Petroleum Gas (LPG)</option>
+                  <option value="JetKerosene">Jet Kerosene</option>
+                  <option value="HFO">Heavy Fuel Oil (HFO)</option>
+                  <option value="MDO">Marine Diesel Oil (MDO)</option>
+                  <option value="MGO">Marine Gas Oil (MGO)</option>
+                </select>
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please select atleast one fuel type</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Fuel quantity</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="Kg"
+                  id="road-fuel-quantity"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+            </form>
+          </div>
+          <div id="details-logistics-road-mileage">
+            <div class="self-start mb-6 font-medium">
+              Logistics: <span class="font-bold">By Road (with Mileage)</span>
+            </div>
+            <form
+              class="w-100 grid grid-cols-3 gap-y-4 gap-x-10 mb-12"
+              action="submit"
+            >
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Fuel Type</span
+                  >
+                </div>
+                <select
+                  class="select select-bordered font-medium"
+                  id="logistics-fuel-type-road-milage"
+                >
+                  <option disabled selected value="">Pick one</option>
+                  <option value="Petrol">Petrol</option>
+                  <option value="Ethanol">Ethanol</option>
+                  <option value="PetrolE5">Petrol E5</option>
+                  <option value="PetrolE10">Petrol E10</option>
+                  <option value="Diesel">Diesel</option>
+                  <option value="BioDiesel">BioDiesel</option>
+                  <option value="DieselD5">Diesel D5</option>
+                  <option value="DieselD7">DieselD7</option>
+                  <option value="CNG">Compressed Natural Gas (CNG)</option>
+                  <option value="LPG">Liquified Petroleum Gas (LPG)</option>
+                  <option value="JetKerosene">Jet Kerosene</option>
+                  <option value="HFO">Heavy Fuel Oil (HFO)</option>
+                  <option value="MDO">Marine Diesel Oil (MDO)</option>
+                  <option value="MGO">Marine Gas Oil (MGO)</option>
+                </select>
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please select atleast one fuel type</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Mileage of Vehicle</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="Km/l"
+                  id="road-mileage-fuel-vehicle"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Distance covered</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="Km"
+                  id="road-mileage-distance"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+            </form>
+          </div>
+          <div id="details-logistics-air">
+            <div class="self-start mb-6 font-medium">
+              Logistics: <span class="font-bold">By Air</span>
+            </div>
+            <form
+              class="w-100 grid grid-cols-3 gap-y-4 gap-x-10 mb-12"
+              action="submit"
+            >
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Fuel Type</span
+                  >
+                </div>
+                <select
+                  class="select select-bordered font-medium"
+                  id="logistics-fuel-type-air"
+                >
+                  <option disabled selected value="">Pick one</option>
+                  <option value="Petrol">Petrol</option>
+                  <option value="Ethanol">Ethanol</option>
+                  <option value="PetrolE5">Petrol E5</option>
+                  <option value="PetrolE10">Petrol E10</option>
+                  <option value="Diesel">Diesel</option>
+                  <option value="BioDiesel">BioDiesel</option>
+                  <option value="DieselD5">Diesel D5</option>
+                  <option value="DieselD7">DieselD7</option>
+                  <option value="CNG">Compressed Natural Gas (CNG)</option>
+                  <option value="LPG">Liquified Petroleum Gas (LPG)</option>
+                  <option value="JetKerosene">Jet Kerosene</option>
+                  <option value="HFO">Heavy Fuel Oil (HFO)</option>
+                  <option value="MDO">Marine Diesel Oil (MDO)</option>
+                  <option value="MGO">Marine Gas Oil (MGO)</option>
+                </select>
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please select atleast one fuel type</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Fuel quantity</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="liter"
+                  id="air-fuel-quantity"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+            </form>
+          </div>
+          <div id="details-logistics-ship">
+            <div class="self-start mb-6 font-medium">
+              Logistics: <span class="font-bold">By Ship</span>
+            </div>
+            <form
+              class="w-100 grid grid-cols-3 gap-y-4 gap-x-10 mb-12"
+              action="submit"
+            >
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Fuel Type</span
+                  >
+                </div>
+                <select
+                  class="select select-bordered font-medium"
+                  id="logistics-fuel-type-ship"
+                >
+                  <option disabled selected value="">Pick one</option>
+                  <option value="Petrol">Petrol</option>
+                  <option value="Ethanol">Ethanol</option>
+                  <option value="PetrolE5">Petrol E5</option>
+                  <option value="PetrolE10">Petrol E10</option>
+                  <option value="Diesel">Diesel</option>
+                  <option value="BioDiesel">BioDiesel</option>
+                  <option value="DieselD5">Diesel D5</option>
+                  <option value="DieselD7">DieselD7</option>
+                  <option value="CNG">Compressed Natural Gas (CNG)</option>
+                  <option value="LPG">Liquified Petroleum Gas (LPG)</option>
+                  <option value="JetKerosene">Jet Kerosene</option>
+                  <option value="HFO">Heavy Fuel Oil (HFO)</option>
+                  <option value="MDO">Marine Diesel Oil (MDO)</option>
+                  <option value="MGO">Marine Gas Oil (MGO)</option>
+                </select>
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please select atleast one fuel type</span
+                  >
+                </div>
+              </label>
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Fuel quantity</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="liter"
+                  id="ship-fuel-quantity"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+            </form>
+          </div>
+          <div id="details-logistics-rail">
+            <div class="self-start mb-6 font-medium">
+              Logistics: <span class="font-bold">By Electric Rail</span>
+            </div>
+            <form
+              class="w-100 grid grid-cols-3 gap-y-4 gap-x-10 mb-12"
+              action="submit"
+            >
+              <label class="form-control w-full max-w-xs">
+                <div class="label">
+                  <span
+                    class="label-text font-semibold text-[12px] text-neutral-600"
+                    >Distance</span
+                  >
+                </div>
+                <input
+                  type="number"
+                  placeholder="liter"
+                  id="rail-distance"
+                  class="input input-bordered w-full max-w-xs font-medium"
+                />
+                <div class="label">
+                  <span class="label-text-alt text-red-600 hidden"
+                    >Please enter a valid value</span
+                  >
+                </div>
+              </label>
+            </form>
+          </div>
+        </div>
+        <div class="flex gap-8" id="details-buttons">
+          <a href="dashboard.html"
+            ><button
+              class="btn btn-wide bg-blue-500 text-white hover:bg-blue-600"
+              id="btn-details-submit"
+            >
+              Submit
+            </button></a
+          >
+          <a href="setup.html"
+            ><button
+              class="btn btn-wide bg-white border-2 border-neutral-500 hover:bg-white hover:border-neutral-600 text-neutral-500 hover:text-neutral-700"
+              id="btn-backTo-setup"
+            >
+              Go back
+            </button></a
+          >
+        </div>
+      </div>
+
+      <!--SUMMARY: Summary card to showcase calculated emission values for a project/product-->
+      <div class="card w-96 bg-base-100 shadow-xl hidden" id="emission-card">
+        <div
+          class="card-body flex flex-col items-center justify-center text-center"
+        >
+          <h2 class="card-title mb-2 text-xl">Carbon Emission</h2>
+          <div class="mb-8 font-bold flex flex-col gap-2">
+            <p class="text-2xl font-bold" id="project-name-final">Project 1</p>
+            <p class="text-2xl font-bold" id="product-name-final">Product 1</p>
+          </div>
+          <div class="pb-4 mb-4 border-b-[1px]">
+            <div class="mb-4" id="primary-emission">
+              <p>Primary Pack Carbon Emission</p>
+              <p class="text-lg font-semibold">
+                0.5
+                <span class="text-sm font-normal">kg of CO<sub>2</sub>e</span>
+              </p>
+            </div>
+            <div class="mb-4" id="secondary-emission">
+              <p>Secondary Pack Carbon Emission</p>
+              <p class="text-lg font-semibold">
+                0.5
+                <span class="text-sm font-normal">kg of CO<sub>2</sub>e</span>
+              </p>
+            </div>
+            <div class="mb-4" id="tertiary-emission">
+              <p>Tertiary Pack Carbon Emission</p>
+              <p class="text-lg font-semibold">
+                0.5
+                <span class="text-sm font-normal">kg of CO<sub>2</sub>e</span>
+              </p>
+            </div>
+            <div class="mb-4" id="logistics-emission">
+              <p>Logistics Carbon Emission</p>
+              <p class="text-lg font-semibold">
+                0.5
+                <span class="text-sm font-normal">kg of CO<sub>2</sub>e</span>
+              </p>
+            </div>
+          </div>
+          <div class="mb-10" id="total-emission">
+            <p>Total Carbon Emission</p>
+            <p class="text-lg font-semibold">
+              1.5 <span class="text-sm font-normal">kg of CO<sub>2</sub>e</span>
+            </p>
+          </div>
+          <div class="card-actions justify-end">
+            <a href="" id="submit-emission" onclick="my_modal_3.showModal()"
+              ><button class="btn btn-primary">Submit</button></a
+            >
+            <a href="project.html" id="back-details"
+              ><button class="btn btn-neutral">Go back</button></a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!--SUBMIT: A dialog modal after user submits the data. -->
+      <dialog id="my_modal_3" class="modal">
+        <div class="modal-box">
+          <form method="dialog">
+            <button
+              class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+            >
+              ✕
+            </button>
+          </form>
+          <h3 class="font-bold text-lg">Hello There!</h3>
+          <p class="py-4" id="modal-text"></p>
+          <a
+            href="dashboard.html"
+            id="view-dashoard"
+            onclick="my_modal_3.close()"
+            ><button class="btn btn-primary">Dashboard</button></a
+          >
+        </div>
+      </dialog>
+    </section>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
